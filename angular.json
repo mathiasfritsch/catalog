@@ -72,7 +72,9 @@
               "namedChunks": true
             },
             "en": {
-              "localize": ["en"]
+              "localize": [
+                "en"
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -134,5 +136,10 @@
       }
     }
   },
-  "defaultProject": "book-monkey"
+  "defaultProject": "book-monkey",
+  "cli": {
+    "defaultCollection": 
+      "@ngrx/schematics"
+    
+  }
 }
