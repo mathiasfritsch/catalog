@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { DateValueAccessorModule } from 'angular-date-value-accessor';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { BookFormComponent } from './book-form/book-form.component';
@@ -10,17 +9,12 @@ import { FormMessagesComponent } from './form-messages/form-messages.component';
 import { EditBookComponent } from './edit-book/edit-book.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    AdminRoutingModule,
-    ReactiveFormsModule,
-    DateValueAccessorModule
-  ],
+  imports: [CommonModule, AdminRoutingModule, ReactiveFormsModule],
   declarations: [
     BookFormComponent,
     CreateBookComponent,
     EditBookComponent,
-    FormMessagesComponent
-  ]
+    FormMessagesComponent,
+  ],
 })
-export class AdminModule { }
+export class AdminModule {}
