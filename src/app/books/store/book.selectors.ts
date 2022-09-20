@@ -10,6 +10,7 @@ export const selectBooksLoading = createSelector(
   (state) => state.loading
 );
 
-export const selectAllBooks = createSelector(selectBookState, (state) =>
-  state.books.filter((b) => b.title.lastIndexOf('Angu') > -1)
+export const selectAllBooks = createSelector(
+  selectBookState,
+  (state) => state.books
 );
