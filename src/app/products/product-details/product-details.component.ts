@@ -6,13 +6,16 @@ import {
   selectAllProducts,
   selectSelectorsLoading,
 } from '../store/product.selectors';
+
+import * as fromReducer from '../store/product.reducer';
+
 @Component({
   selector: 'bm-product-details',
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.css'],
 })
 export class ProductDetailsComponent implements OnInit {
-  products$ = this.store.pipe(select(selectAllProducts));
+  products$ = this.store.pipe(select(fromReducer.selectAllProductsE));
   loading$ = this.store.pipe(select(selectProductState));
 
   constructor(private store: Store) {}
