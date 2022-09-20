@@ -3,7 +3,7 @@ import { Store, select } from '@ngrx/store';
 import { loadProducts } from '../store/product.actions';
 import {
   selectProductState,
-  selectAllProducts,
+  selectAllProductsE,
   selectSelectorsLoading,
 } from '../store/product.selectors';
 
@@ -15,7 +15,7 @@ import * as fromReducer from '../store/product.reducer';
   styleUrls: ['./product-details.component.css'],
 })
 export class ProductDetailsComponent implements OnInit {
-  products$ = this.store.pipe(select(fromReducer.selectAllProductsE));
+  products$ = this.store.pipe(select(selectAllProductsE));
   loading$ = this.store.pipe(select(selectProductState));
 
   constructor(private store: Store) {}

@@ -1,9 +1,10 @@
-import { Action, createReducer, on } from '@ngrx/store';
+import { Action, createReducer, on, createFeatureSelector } from '@ngrx/store';
 import * as ProductActions from './product.actions';
 import { Product } from 'src/app/shared/product';
 import { state } from '@angular/animations';
 export const productFeatureKey = 'product';
 import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
+import { createSelector } from '@ngrx/store';
 
 export const adapter: EntityAdapter<Product> = createEntityAdapter<Product>({});
 
@@ -11,6 +12,7 @@ export interface State extends EntityState<Product> {
   products: Product[];
   loading: boolean;
 }
+const productFeature = createFeatureSelector(productFeatureKey);
 
 export const initialState: State = adapter.getInitialState({
   products: [],
@@ -34,7 +36,5 @@ export const reducer = createReducer(
     return { ...state, loading: false };
   })
 );
-const { selectIds, selectEntities, selectAll, selectTotal } =
-  adapter.getSelectors();
-export const selectAllProductsE = selectAll;
-export const selectProductsTotal = selectTotal;
+
+export const { selectAll } = adapter.getSelectors();
