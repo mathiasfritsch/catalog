@@ -1,0 +1,3 @@
+select Product according to
+
+https://stackblitz.com/edit/tour-of-heroes-ngrx-entity?file=src%2Fapp%2Fhero-detail%2Fhero-detail.component.ts
