@@ -1,18 +1,1 @@
-<div class="ui middle aligned selection divided list">
-  <ng-container *ngIf="products$ | async as products; else loading">
-    <div class="item" *ngFor="let p of products">
-      <div>{{ p.id }}</div>
-      <div>{{ p.name }}</div>
-    </div>
-
-    <p *ngIf="!products.length">Es wurden noch keine Bücher eingetragen.</p>
-  </ng-container>
-
-  <ng-template #loading>
-    <div class="ui active dimmer">
-      <div class="ui large text loader" i18n="@@BookListComponent:loading data">
-        Daten werden geladen...
-      </div>
-    </div>
-  </ng-template>
-</div>
+<div>{{ productId }}</div>

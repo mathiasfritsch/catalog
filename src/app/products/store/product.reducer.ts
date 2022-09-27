@@ -9,13 +9,11 @@ import { createSelector } from '@ngrx/store';
 export const adapter: EntityAdapter<Product> = createEntityAdapter<Product>({});
 
 export interface State extends EntityState<Product> {
-  products: Product[];
   loading: boolean;
 }
 const productFeature = createFeatureSelector(productFeatureKey);
 
 export const initialState: State = adapter.getInitialState({
-  products: [],
   loading: false,
 });
 

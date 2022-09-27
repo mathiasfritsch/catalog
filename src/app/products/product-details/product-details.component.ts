@@ -1,13 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { loadProducts } from '../store/product.actions';
-import {
-  selectProductState,
-  selectAllProducts,
-  selectSelectorsLoading,
-} from '../store/product.selectors';
-
-import * as fromReducer from '../store/product.reducer';
+import { selectProduct } from '../store/product.selectors';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Product } from 'src/app/shared/product';
 
 @Component({
   selector: 'bm-product-details',
@@ -15,11 +12,22 @@ import * as fromReducer from '../store/product.reducer';
   styleUrls: ['./product-details.component.css'],
 })
 export class ProductDetailsComponent implements OnInit {
-  products$ = this.store.pipe(select(selectAllProducts));
-  loading$ = this.store.pipe(select(selectProductState));
+  constructor(private store: Store, private route: ActivatedRoute) {}
 
-  constructor(private store: Store) {}
+  productId: number = 0;
+  product$: Observable<Product> = new Observable<Product>();
+
   ngOnInit(): void {
-    this.store.dispatch(loadProducts());
+    this.loadProduct();
+  }
+
+  loadProduct(): void {
+    const id = +this.route.snapshot.paramMap.get('id')!;
+    this.productId = id;
+
+    //this.store.dispatch(new heroActions.SelectHero(id));
+    const retValue = this.store.select(selectProduct);
+
+    //if (retValue != null) this.product$ = retValue!;
   }
 }

@@ -14,3 +14,7 @@ export const selectAllProducts = createSelector(
   selectProductState,
   fromProduct.selectAll
 );
+export const selectProduct = createSelector(
+  selectProductState,
+  (state) => state.entities[1]
+);

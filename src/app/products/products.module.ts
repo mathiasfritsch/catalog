@@ -6,9 +6,9 @@ import { EffectsModule } from '@ngrx/effects';
 import { ProductEffects } from './store/product.effects';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProductsRoutingModule } from './products-routing.module';
-
+import { ProductListComponent } from './product-list/product-list.component';
 @NgModule({
-  declarations: [ProductDetailsComponent],
+  declarations: [ProductDetailsComponent, ProductListComponent],
   imports: [
     ProductsRoutingModule,
     CommonModule,
